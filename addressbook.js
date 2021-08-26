@@ -1,4 +1,3 @@
-  
 /* @Description - create contacts class and create constructor to used the this keyword
  *for the initializing the instances set value with the possition */
 
@@ -20,8 +19,8 @@ class Contact{
     
         get firstName() { return this.firstName; }
         set firstName(firstName) {
-            let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
-            if (nameRegex.test(firstName))
+            let firstNameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+            if (firstNameRegex.test(firstName))
                 this._firstName = firstName;
             else
                 throw "Invalid first Name";
@@ -32,7 +31,7 @@ class Contact{
     
         get lastName() { return this._lastName; }
         set lastName(lastName) {
-            let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
+            let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
             if (nameRegex.test(lastName))
                 this._lastName = lastName;
             else
@@ -119,4 +118,20 @@ class Contact{
                 + this.state + "\nZip: " + this.zip
                 + ", Phone Number: " + this.phoneNumber + ", Email: " + this.email;
         }
+    }
+    
+    /* @Description - to create a new address book array and add new contacts  */
+    
+    try {
+        let detailsArray = new Array();
+        detailsArray.push(new Contact("GAgan", "Reddy", "Heelalige", "Bangalore", "Karnataka", "560099",
+            "91 7019329791", "gaganreddy@gmail.com"));
+            detailsArray.push(new Contact("SHravya", "Reddy", "Shanthapuram", "Hosur", "Tamilnadu", "635126",
+            "91 9901014451", "shravyareddyh@gmail.com"));
+        
+        
+        detailsArray.forEach((contact) => console.log(contact.toString()));
+    }
+    catch (e) {
+        console.log('Regex test is fail \n' + e);
     }
