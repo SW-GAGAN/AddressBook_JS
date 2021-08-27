@@ -126,8 +126,8 @@ class Contact {
 
 try {
     let detailsArray = new Array();
-    detailsArray.push(new Contact('Gagan', 'Reddy', 'Heelalige', 'Bangalore', 'Ka', '560099',
-        '91 8052696969', 'gaganreddy@gmail.com'));
+    detailsArray.push(new Contact('Amar', 'Mishra', 'RamNagar', 'Ambedhkar', 'Up', '223 223',
+        '91 8052696969', 'jay@gmail.com'));
     detailsArray.push(new Contact('Ravi', 'Mishra', 'RamNagar', 'Ambedhkar', 'Up', '223 223',
         '91 9452696969', 'ravi@gmail.com'));
     detailsArray.push(new Contact('Rakesh', 'Mishra', 'RamNagar', 'Ambedhkar', 'Up', '223 223',
@@ -194,7 +194,7 @@ try {
         if (searchByCity == 0) console.log('Search not found by city name ' + searchCity);
         else console.log("\n" + searchByCity + ' Search found by city name ' + searchCity);
     }
-    let searchCity = 'Bangalore';
+    let searchCity = 'Ambedhkar';
     let searchByCity = detailsArray.filter(contact => contact.city == searchCity).map(contact => contact).reduce(countPersonByCity, 0);
     searchByCity();
 
@@ -209,7 +209,7 @@ try {
         if (serchByState == 0) console.log('Search not found by state name ' + searchState);
         else console.log('\n '+ serchByState + ' Search found by state name ' + searchState);
     }
-    let searchState = 'Ka';
+    let searchState = 'Uttar Pradesh';
     let serchByState = detailsArray.filter(contact => contact.state == searchState).map(contact => contact).reduce(countPersonByCity, 0);
     searchByState();
 
@@ -221,6 +221,18 @@ try {
     contactByCityArray.forEach(contact => console.log(contact.toString()))
     let contactByStateArray = detailsArray.filter(contact => contact.state == contactState).map(contact => contact);
     contactByStateArray.forEach(contact => console.log(contact.toString()));
+
+    /* @Description -  get the number of contact person i.e count by city or state */
+
+    function countContacts(counter, contact) {
+        if (contact !== null)
+            counter++;
+        return counter;
+    }
+    let countByCity = detailsArray.filter(contact => contact.city !== null).map(contact => contact).reduce(countContacts, 0);
+    console.log("Count by City " + countByCity);
+    let countByState = detailsArray.filter(contact => contact.state !== null).map(contact => contact).reduce(countContacts, 0);
+    console.log("Count by City " + countByState);
 }
 
 catch (e) {
