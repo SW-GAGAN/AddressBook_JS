@@ -209,9 +209,18 @@ try {
         if (serchByState == 0) console.log('Search not found by state name ' + searchState);
         else console.log('\n '+ serchByState + ' Search found by state name ' + searchState);
     }
-    let searchState = 'Up';
+    let searchState = 'Ka';
     let serchByState = detailsArray.filter(contact => contact.state == searchState).map(contact => contact).reduce(countPersonByCity, 0);
     searchByState();
+
+    /*@Description - view person by city or state */
+
+    let contactCity = "Vadodara";
+    let contactState = "Maharashtra";
+    let contactByCityArray = detailsArray.filter(contact => contact.city == contactCity).map(contact => contact);
+    contactByCityArray.forEach(contact => console.log(contact.toString()))
+    let contactByStateArray = detailsArray.filter(contact => contact.state == contactState).map(contact => contact);
+    contactByStateArray.forEach(contact => console.log(contact.toString()));
 }
 
 catch (e) {
