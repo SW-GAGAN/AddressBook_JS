@@ -127,7 +127,7 @@ class Contact{
     try {
         let detailsArray = new Array();
         detailsArray.push(new Contact('Gagan', 'Reddy', 'Heelalige', 'Bangalore', 'Ka', '560099',
-            '91 8052696969', 'gagan@gmail.com'));
+            '91 8052696969', 'gaganreddy@gmail.com'));
             detailsArray.push(new Contact('Ravi', 'Mishra', 'RamNagar', 'Ambedhkar', 'Up', '223 223',
             '91 9452696969', 'ravi@gmail.com'));
             detailsArray.push(new Contact('Rakesh', 'Mishra', 'RamNagar', 'Ambedhkar', 'Up', '223 223',
@@ -144,6 +144,17 @@ class Contact{
         detailsArray.slice(index, 1);
         console.log('address book after deleting contact ');
         detailsArray.forEach((contact) => console.log(contact.toString()));
+    /* @Description - declear function and return count value if the codition failed the increase the count
+     * value.
+     * by using reduce method to count the number of contact which is present is array*/
+    
+        let count = 0;
+        function findNumberOfContacts(contact) {
+            if (contact != null)
+                return count++;
+        }
+        detailsArray.reduce(findNumberOfContacts, 0);
+        console.log(' Total number of contacts in array  : ' + count);
     }
     catch (e) {
         console.log('Regex test is fail \n' + e);
